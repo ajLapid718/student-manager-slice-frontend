@@ -5,12 +5,12 @@ import thunkMiddleware from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 // import reducer functions to set up combineReducers here;
-// because the default export of the students.js file in the utilities directory is the reducer function, we can call it anything in this file where we are importing it (the name we choose will be the name of the key in our Redux store);
-import allStudents from "./utilities/students";
+// import "everything" from the barrel file, which will is an object containing all of the reducer functions;
+import * as reducers from "../reducers";
 
 // construct Redux Store here;
 // you can also explicitly set the name of the key in your redux store within the object you are passing to combineReducers;
-const rootReducer = combineReducers({allStudents});
+const rootReducer = combineReducers(reducers);
 const logger = createLogger({ collapsed: true });
 const middleware = composeWithDevTools(applyMiddleware(logger, thunkMiddleware));
 const store = createStore(rootReducer, middleware);
