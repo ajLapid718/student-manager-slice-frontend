@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { AllStudentsView } from "../views";
 import { connect } from "react-redux";
-import { fetchAllStudentsThunk } from "../../thunks";
+import { fetchAllStudentsThunk, removeStudentThunk } from "../../thunks";
 
 class AllStudentsContainer extends Component {
     constructor() {
@@ -13,8 +13,12 @@ class AllStudentsContainer extends Component {
         this.props.fetchAllStudents();
     }
 
+    handleRemoveStudent = (id) => {
+        this.props.removeAStudent(id);
+    }
+
     render() {
-        return <AllStudentsView allStudents={this.props.allStudents}/>
+        return <AllStudentsView allStudents={this.props.allStudents} handleRemoveStudent={this.handleRemoveStudent} />
     }
 }
 
@@ -22,11 +26,12 @@ function mapState(state) {
     return {
         allStudents: state.allStudents
     }
-} 
+}
 
 function mapDispatch(dispatch) {
     return {
-        fetchAllStudents: () => dispatch(fetchAllStudentsThunk())
+        fetchAllStudents: () => dispatch(fetchAllStudentsThunk()),
+        removeAStudent: (id) => dispatch(removeStudentThunk(id))
     }
 }
 
