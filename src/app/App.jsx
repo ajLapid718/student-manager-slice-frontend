@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { AllStudentsContainer } from "../components/containers";
+import { AllStudentsContainer, AddStudentForm } from "../components/containers";
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Hello World!</h1>
         <AllStudentsContainer />
+        <AddStudentForm />
       </header>
     </div>
   );
