@@ -1,6 +1,7 @@
 // ACTION TYPES;
 const FETCH_ALL_STUDENTS = "FETCH_ALL_STUDENTS";
 const REMOVE_A_STUDENT = "REMOVE_A_STUDENT";
+const ADD_A_STUDENT = "ADD_A_STUDENT";
 
 // ACTION CREATORS;
 function fetchAllStudents(students) {
@@ -14,6 +15,13 @@ function removeAStudent(id) {
     return {
         type: REMOVE_A_STUDENT,
         payload: id
+    }
+}
+
+function addAStudent(studentToAdd) {
+    return {
+        type: ADD_A_STUDENT,
+        payload: studentToAdd
     }
 }
 
@@ -32,6 +40,12 @@ export function removeStudentThunk(id) {
     }
 }
 
+export function addAStudentThunk(studentToAdd) {
+    return function(dispatch) {
+        dispatch(addAStudent(studentToAdd));
+    }
+}
+
 // REDUCER;
 function allStudentsReducer(state = [], action) {
     switch (action.type) {
@@ -39,6 +53,8 @@ function allStudentsReducer(state = [], action) {
             return action.payload;
         case REMOVE_A_STUDENT:
             return state.filter(student => student.id !== action.payload);
+        case ADD_A_STUDENT:
+            return [...state, action.payload];
         default:
             return state;
     }
