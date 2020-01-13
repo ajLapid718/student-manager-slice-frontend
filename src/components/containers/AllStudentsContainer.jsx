@@ -2,7 +2,7 @@
 import React, { Component } from "react";
 import { AllStudentsView } from "../views";
 import { connect } from "react-redux";
-import { fetchAllStudentsThunk } from "../../store/utilities/students";
+import { fetchAllStudentsThunk } from "../../thunks";
 
 class AllStudentsContainer extends Component {
     constructor() {
