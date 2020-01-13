@@ -10,12 +10,11 @@ class AllStudentsContainer extends Component {
     }
 
     componentDidMount() {
-        console.log("mount");
         this.props.fetchAllStudents();
     }
 
     render() {
-        return <AllStudentsView />
+        return <AllStudentsView allStudents={this.props.allStudents}/>
     }
 }
 
