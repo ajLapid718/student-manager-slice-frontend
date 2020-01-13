@@ -12,7 +12,7 @@ import * as reducers from "../reducers";
 // you can also explicitly set the name of the key in your redux store within the object you are passing to combineReducers;
 const rootReducer = combineReducers(reducers);
 const logger = createLogger({ collapsed: true });
-const middleware = composeWithDevTools(applyMiddleware(logger, thunkMiddleware));
+const middleware = composeWithDevTools(applyMiddleware(thunkMiddleware, logger));
 const store = createStore(rootReducer, middleware);
 
 // export Redux Store here so that we can pass it to the Provider wrapper;
