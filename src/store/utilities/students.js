@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // ACTION TYPES;
 const FETCH_ALL_STUDENTS = "FETCH_ALL_STUDENTS";
 const REMOVE_A_STUDENT = "REMOVE_A_STUDENT";
@@ -29,7 +31,6 @@ function addAStudent(studentToAdd) {
 // These will be called in the anonymous function of our mapDispatch of one of our React components;
 export function fetchAllStudentsThunk() {
     return function(dispatch) {
-        const studentsFromAPI = [{id: 1, name: "AJ"}, {id: 2, name: "Billy"}, {id: 3, name: "Tony"}];
         dispatch(fetchAllStudents(studentsFromAPI));
     }
 }
