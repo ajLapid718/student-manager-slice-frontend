@@ -40,7 +40,11 @@ export function fetchAllStudentsThunk() {
 
 export function removeStudentThunk(id) {
     return function (dispatch) {
-        dispatch(removeAStudent(id));
+        axios
+            .delete(`/api/students/${id}`)
+            .then(res => res.data)
+            .then(() => dispatch(removeAStudent(id)))
+            .catch(err => console.log(err))
     }
 }
 
