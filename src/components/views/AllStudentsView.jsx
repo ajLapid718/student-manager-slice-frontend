@@ -6,7 +6,13 @@ function AllStudentsView(props) {
         <div>
             <h1>ALLSTUDENTSVIEW IS RENDERING HERE</h1>
             {props.allStudents.map(student => (
-                <p key={student.id}>{student.firstName}<button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button></p>
+                <div key={student.id}>
+                    <p>Student's First Name: {student.firstName}</p>
+                    <p>Student's Last Name: {student.lastName}</p>
+                    <p>Student's ID Number: {student.id}</p>
+                    <p>Student's Campus: {student.campus.name}</p>
+                    <button onClick={() => props.handleRemoveStudent(student.id)}>Delete Student</button>
+                </div>
             ))
             }
         </div>
