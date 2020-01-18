@@ -30,19 +30,22 @@ function addAStudent(studentToAdd) {
 // THUNKS;
 // These will be called in the anonymous function of our mapDispatch of one of our React components;
 export function fetchAllStudentsThunk() {
-    return function(dispatch) {
-        dispatch(fetchAllStudents(studentsFromAPI));
+    return function (dispatch) {
+        axios
+            .get("/api/students")
+            .then(res => res.data)
+            .then(students => dispatch(fetchAllStudents(students)))
     }
 }
 
 export function removeStudentThunk(id) {
-    return function(dispatch) {
+    return function (dispatch) {
         dispatch(removeAStudent(id));
     }
 }
 
 export function addAStudentThunk(studentToAdd) {
-    return function(dispatch) {
+    return function (dispatch) {
         dispatch(addAStudent(studentToAdd));
     }
 }
