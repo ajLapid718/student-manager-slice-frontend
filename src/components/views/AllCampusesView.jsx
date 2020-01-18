@@ -9,6 +9,8 @@ function AllCampusesView(props) {
                 <div key={campus.id}>
                     <p>Campus's First Name: {campus.name}</p>
                     <p>Campus ID: {campus.id} </p>
+                    <h2>Last names of students who go to {campus.name} are</h2>
+                    {campus.students.map(student => <div>{student.lastName}</div>)}
                 </div>
             ))
             }
