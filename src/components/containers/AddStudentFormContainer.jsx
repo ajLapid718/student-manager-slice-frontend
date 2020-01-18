@@ -9,8 +9,8 @@ class AddStudentForm extends Component {
     constructor() {
         super();
         this.state = {
-            id: 0,
-            name: ""
+            firstName: "",
+            lastName: ""
         }
     }
 
@@ -29,10 +29,10 @@ class AddStudentForm extends Component {
         // it is also a minor point for this lesson;
         return (
             <form onSubmit={this.handleSubmit}>
-                <label htmlFor="id">ID:</label>
-                <input name="id" type="number" onChange={this.handleChange}></input>
-                <label htmlFor="name">Name:</label>
-                <input name="name" type="text" onChange={this.handleChange}></input>
+                <label htmlFor="firstName">First Name:</label>
+                <input name="firstName" type="text" onChange={this.handleChange}></input>
+                <label htmlFor="lastName">Last Name:</label>
+                <input name="lastName" type="text" onChange={this.handleChange}></input>
                 <button>Add Student</button>
             </form>
         )

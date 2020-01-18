@@ -50,7 +50,10 @@ export function removeStudentThunk(id) {
 
 export function addAStudentThunk(studentToAdd) {
     return function (dispatch) {
-        dispatch(addAStudent(studentToAdd));
+        axios
+            .post("/api/students", studentToAdd)
+            .then(res => res.data)
+            .then(addedStudent => dispatch(addAStudent(addedStudent)));
     }
 }
 
